@@ -31,4 +31,14 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 - Spark Jop configuration 
 
 # Migration topics for FnO legacy deployments
+-
+-
+
+# Using Fabric Pipelines to update Dataverse
+1.
+2.
+
+# Using Fabric Datawarehouse for Advanced Analytics
+1.
+2.
 
