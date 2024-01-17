@@ -24,6 +24,10 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 # Creating a Report on Fabric Shortcuts
 - Import & Direct Query
 - DirectLake Query 
+- Additional Topics
+    - Dataverse stringmap
+    - Calendar tables - Bravo
+    - Security
 
 # Dynamics 365 Analytics with Fabric - Synapse Link
 - Configuration and use
@@ -42,3 +46,6 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 1.
 2.
 
+# Embedding Power BI reports inside Dynamics
+1. Dashboards in CE/PowerApps
+2. 
