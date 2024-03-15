@@ -33,13 +33,13 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 - Additional Topics
   - Dataverse stringmap
   - Calendar tables - Bravo
-  - Security
+  - Security discussions
 
 ## Dynamics 365 Analytics with Fabric - Synapse Link
 
 - Configuration and use
 - Comparison to Microsoft OneLake
-- Spark Jop configuration
+- Spark Job configuration
 
 ## Migration topics for FnO legacy deployments
 
@@ -48,8 +48,8 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 
 ## Using Fabric Pipelines to update Dataverse
 
-1.
-2.
+1. Create a DataFlow to read/update Dataverse
+2. Create a pipeline to update Dataverse
 
 ## Using Fabric Datawarehouse for Advanced Analytics
 
@@ -59,4 +59,4 @@ This repo covers the elements we'll use for the D365 Fabric in a day workshop.
 ## Embedding Power BI reports inside Dynamics
 
 1. Dashboards in CE/PowerApps
-2.
+2. Reports in CE/PowerApps forms
