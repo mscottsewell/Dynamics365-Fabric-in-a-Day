@@ -7,6 +7,7 @@
 --
 -- The multi-select option set field is called pbi_channelactivities and is on the contact entity.
 SELECT  Base.contactid
+      , Base.fullname  AS [Contact Name]  
       , Base.pbi_channelactivities
     FROM contact AS Base
     WHERE
@@ -140,20 +141,19 @@ b690810e-1f51-ee11-be6d-6045bd009e0b	Session, Invite Redemption, Portal Comment
 --(This pattern can be re-used multiple times to convert all needed multi-select option set field to their corresponding string values.)
 --
 WITH CTE_contact_channelactivity AS
-        (
-            SELECT  Base.contactid
-                  , STRING_AGG(contact_channelactivity.value, ', ')         AS channelactivities_string
-                FROM [dbo].[contact]                                        AS Base
-                CROSS APPLY string_split (Base.pbi_channelactivities , ';') AS string
-                JOIN stringmap contact_channelactivity
-                    ON  contact_channelactivity.attributename = 'pbi_channelactivities'
-                    AND contact_channelactivity.objecttypecode = 'contact'
-                    AND contact_channelactivity.langid = 1033
-                    AND contact_channelactivity.attributevalue = string.value
-                WHERE
-                    Base.pbi_channelactivities IS NOT NULL
-                GROUP BY
-                    Base.contactid )
+    (SELECT  Base.contactid
+            , STRING_AGG(contact_channelactivity.value, ', ')       AS channelactivities_string
+        FROM [dbo].[contact]                                        AS Base
+        CROSS APPLY string_split (Base.pbi_channelactivities , ';') AS string
+        JOIN stringmap contact_channelactivity
+            ON  contact_channelactivity.attributename = 'pbi_channelactivities'
+            AND contact_channelactivity.objecttypecode = 'contact'
+            AND contact_channelactivity.langid = 1033
+            AND contact_channelactivity.attributevalue = string.value
+        WHERE
+            Base.pbi_channelactivities IS NOT NULL
+        GROUP BY
+            Base.contactid )
 SELECT  Base.contactid
       , Base.fullname                                        AS [Contact Name]
       , CTE_contact_channelactivity.channelactivities_string AS [Channel Activities]
